@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hudson Community Service Association – Food Pantry</title>
+  <meta name="description" content="Get food, give food or money, or volunteer with the Hudson Community Service Association Food Pantry.">
+  <style>
+    :root {
+      --navy: #12274b;
+      --navy-dark: #0b1a33;
+      --gold: #f2b632;
+      --white: #fff;
+      --black: #111;
+      --mid-blue: #4a6a9c;
+      --box-blue: #7b9dd4;
+      --soft-text: #eef1f6;
+      --light-bg: #f4f1ea;
+      --body-text: #1c2431;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.5;
+      color: var(--black);
+      background: var(--white);
+    }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+    /* Top third: banner */
+    .banner {
+      position: relative;
+      background: linear-gradient(rgba(11,26,51,.45), rgba(11,26,51,.45)),
+        url("https://images.squarespace-cdn.com/content/v1/61802179e2ff63423e306244/c42a2b2c-19d5-4c3a-9cde-53364afb1b32/IMG_2210.jpg?format=2500w") center / cover no-repeat;
+      background-color: var(--navy);
+    }
+    .banner-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      min-height: 160px;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .logo {
+      background: rgba(255,255,255,.92);
+      border-radius: 6px;
+      padding: 6px 10px;
+      display: block;
+    }
+    .logo img { height: 90px; width: auto; display: block; }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 6px 22px;
+    }
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      text-shadow: 0 1px 3px rgba(0,0,0,.7);
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+    }
+    nav a:hover { border-bottom-color: var(--gold); }
+
+    /* Middle third: calls to action */
+    .actions { background: var(--mid-blue); padding: 36px 24px; }
+    .actions-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: end;
+    }
+    .col { display: flex; flex-direction: column; min-width: 0; }
+    .next-date {
+      color: var(--soft-text);
+      text-align: center;
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+    }
+    .next-date strong { display: block; color: #ffd566; font-size: 1.5rem; line-height: 1.2; }
+    .box {
+      background: var(--box-blue);
+      color: var(--soft-text);
+      border-radius: 8px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.25);
+      padding: 28px 24px;
+      text-align: center;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-top: 6px solid var(--gold);
+    }
+    .box h2 { margin: 0; font-size: 1.6rem; color: #ffd566; }
+    .box p { margin: 0; }
+    .address { font-style: normal; font-weight: 600; }
+    .col-receive .box { padding: 40px 28px; border-top-width: 8px; }
+    .col-receive .box h2 { font-size: 2rem; }
+    .btn {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 12px 22px;
+      background: var(--soft-text);
+      color: var(--navy);
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .btn:hover { background: var(--white); }
+    .btn.alt, .col-receive .btn { background: var(--gold); color: var(--black); }
+    .btn.alt:hover, .col-receive .btn:hover { background: #ffc94d; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+
+    /* Bottom third: details */
+    .details { background: var(--light-bg); color: var(--body-text); padding: 44px 24px; }
+    .details-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+    }
+    .details h2 { margin-top: 0; color: var(--navy); font-size: 1.35rem; border-bottom: 3px solid var(--gold); padding-bottom: 6px; }
+    .details ul { padding-left: 1.2em; margin: 0 0 12px; }
+    .details li { margin-bottom: 6px; }
+    .details a { color: #1d4a99; }
+
+    footer {
+      background: var(--navy);
+      color: var(--soft-text);
+      text-align: center;
+      padding: 18px 24px;
+      font-size: .9rem;
+    }
+    footer p { margin: 2px 0; }
+    footer a { color: #ffd566; }
+
+    @media (max-width: 860px) {
+      .banner-inner { flex-direction: column; align-items: flex-start; min-height: 0; }
+      nav ul { justify-content: flex-start; }
+      .actions-grid, .details-grid { grid-template-columns: 1fr; }
+      /* Receive food first on small screens */
+      .col-receive { order: -1; }
+      .actions-grid { align-items: stretch; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="banner">
+    <div class="banner-inner">
+      <a class="logo" href="https://www.hudsoncsa.org/" aria-label="Hudson Community Service Association home">
+        <img src="https://images.squarespace-cdn.com/content/v1/61802179e2ff63423e306244/9cbd342e-764c-4d69-a324-2f7294d55894/HCSA.png?format=750w" alt="Hudson Community Service Association">
+      </a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="https://www.hudsoncsa.org/">Home</a></li>
+          <li><a href="https://www.hudsoncsa.org/about">About HCSA</a></li>
+          <li><a href="https://www.hudsoncsa.org/food-pantry">Food Pantry</a></li>
+          <li><a href="https://www.hudsoncsa.org/helpinghands">Helping Hands</a></li>
+          <li><a href="https://www.hudsoncsa.org/holiday-lighting">Holiday Lighting</a></li>
+          <li><a href="https://www.hudsoncsa.org/how-to-join">How to Join</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="actions" aria-label="How can we help?">
+      <div class="actions-grid">
+
+        <div class="col">
+          <div class="box">
+            <h2>Donate</h2>
+            <p>Your gift of money or food keeps our shelves full for neighbors in need.</p>
+            <div class="btn-row">
+              <a class="btn alt" href="https://hudson.fcsuite.com/erp/donate/create/fund?funit_id=1529">Give Money</a>
+              <a class="btn" href="#donate-details">Give Food</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col col-receive">
+          <p class="next-date">Next food distribution<strong id="next-date">4th Saturday of the month, 12–2 PM</strong></p>
+          <div class="box">
+            <h2>Receive Food</h2>
+            <p>Free groceries for neighbors in the Hudson City School District. No preregistration needed.</p>
+            <address class="address">Rejoice Lutheran Church<br>7855 Stow Rd, Hudson, OH 44236</address>
+            <a class="btn" href="#receive-details">What to bring</a>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="box">
+            <h2>Volunteer</h2>
+            <p>Help us stock shelves, welcome neighbors, and run distribution day.</p>
+            <a class="btn" href="#volunteer-details">Get Involved</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="details" aria-label="Details">
+      <div class="details-grid">
+
+        <article id="donate-details">
+          <h2>The Impact of Your Gift</h2>
+          <p>HCSA is a partner of the Akron-Canton Regional Foodbank, so every dollar helps us stock the pantry with staples, fresh produce, bread, and protein for neighbors facing job loss, illness, fire, or other hardship.</p>
+          <ul>
+            <li><strong>Money:</strong> donate online for the Food Pantry, Helping Hands, Holiday Lighting or the General Fund, or mail a check to HCSA, P.O. Box 1472, Hudson, OH 44236 (note the fund in the memo line).</li>
+            <li><strong>Gift cards:</strong> let us buy the extra items our shelves need.</li>
+            <li><strong>Food and personal items:</strong> a 24/7 donation bin is outside Rejoice Lutheran Church (7855 Stow Rd) and at Hudson Town Hall (27 E Main St). Please, no expired food.</li>
+            <li><strong>Hosting a drive?</strong> Call 234-380-7402 to learn current needs.</li>
+          </ul>
+          <p>HCSA is a 501(c)(3) nonprofit; contributions are tax deductible.</p>
+        </article>
+
+        <article id="receive-details">
+          <h2>Receiving Food</h2>
+          <p>We are a full <em>choice</em> pantry: take the items you know you and your family can use, including produce, bread, frozen meat, dairy when available, and toiletries.</p>
+          <ul>
+            <li><strong>When:</strong> 4th Saturday of each month (except major holidays), 12–2 PM. It is usually less crowded 12:45–1:30 PM.</li>
+            <li><strong>Where:</strong> Rejoice Lutheran Church, 7855 Stow Rd, Hudson.</li>
+            <li><strong>First visit:</strong> bring a state ID and a piece of mail showing your address.</li>
+            <li><strong>Check in</strong> with a volunteer, then choose your groceries.</li>
+            <li><strong>Can't attend?</strong> Ask about a proxy form, an appointment, or emergency food.</li>
+          </ul>
+          <p>Questions? Call <a href="tel:234-380-7402">234-380-7402</a> and leave a message (please don't call the church), or email <a href="mailto:hcsapantryteam@gmail.com">hcsapantryteam@gmail.com</a>.</p>
+        </article>
+
+        <article id="volunteer-details">
+          <h2>Volunteer Options</h2>
+          <p>Volunteers make everything we do possible. Find a role that fits your schedule.</p>
+          <ul>
+            <li><strong>Food Pantry:</strong> check in neighbors, stock shelves, and help with distribution day.</li>
+            <li><strong>Helping Hands:</strong> support neighbors in crisis with rent, utilities, clothing, and gas assistance and referrals.</li>
+            <li><strong>Food drives:</strong> organize a collection for your school, church, or business.</li>
+            <li><strong>Organizations:</strong> join HCSA and send a representative to the monthly meeting.</li>
+          </ul>
+          <p>Pantry: <a href="tel:234-380-7402">234-380-7402</a> · Helping Hands: <a href="tel:330-671-9457">330-671-9457</a></p>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Hudson Community Service Association · P.O. Box 1472, Hudson, Ohio 44236</p>
+    <p><a href="https://www.facebook.com/HudsonCommunity">Follow us on Facebook</a></p>
+  </footer>
+
+  <script>
+    // Next 4th Saturday at or after now (distribution ends 2 PM). Holiday shifts are not modeled.
+    (function () {
+      function fourthSaturday(year, month) {
+        const first = new Date(year, month, 1);
+        const offset = (6 - first.getDay() + 7) % 7;
+        return new Date(year, month, 1 + offset + 21, 14, 0);
+      }
+      const now = new Date();
+      let d = fourthSaturday(now.getFullYear(), now.getMonth());
+      if (d < now) d = fourthSaturday(now.getFullYear(), now.getMonth() + 1);
+      const text = d.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
+      document.getElementById("next-date").textContent = text + ", 12–2\u00a0PM";
+    })();
+  </script>
+</body>
+</html>
